@@ -51,7 +51,7 @@ func main() {
 		close(idleConnsClosed)
 	}()
 
-	lgr.Info("starting web server", zap.String("address", appAddress))
+	lgr.Info("started web server", zap.String("address", appAddress))
 	if err := srv.ListenAndServe(); err != http.ErrServerClosed {
 		// close DB connections
 		lgr.Error("error while serving http server", zap.String("error", err.Error()))
