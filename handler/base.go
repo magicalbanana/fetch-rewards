@@ -52,6 +52,8 @@ func (b Base) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		response.AddError(respErr)
 	}
 
+	rw.Header().Set("Content-Type", "application/json")
+
 	rw.WriteHeader(response.HTTPStatus)
 
 	respByte, err := response.Marshal()
