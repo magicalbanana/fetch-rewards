@@ -8,6 +8,7 @@ COPY . .
 
 RUN apk add --update --no-cache alpine-sdk git
 
+RUN go mod vendor
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
     go build -mod vendor -v -a -installsuffix cgo -o http-server \
     main.go
